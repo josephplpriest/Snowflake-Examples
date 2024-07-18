@@ -1,10 +1,7 @@
 ---> By default, only an SYSADMIN or higher role can create a new warehouse, permission can be granted with custom roles
 USE ROLE SYSADMIN;
 
-
-CREATE WAREHOUSE IF NOT EXISTS EXAMPLE_WH1
-
-WITH
+CREATE WAREHOUSE IF NOT EXISTS EXAMPLE_WH1 WITH
 
 ---> each size increase doubles the compute resources (and credits consumed while warehouse runs)
 ---> XSMALL | SMALL | MEDIUM | LARGE | XLARGE | XXLARGE | XXXLARGE | X4LARGE | X5LARGE | X6LARGE
@@ -28,13 +25,9 @@ AUTO_RESUME = TRUE
 ---> number of seconds, setting to 0 or null NEVER suspends the warehouse, not recommended
 AUTO_SUSPEND = 600 --600 is the default
 
-
-
 COMMENT = 'This is a small, single cluster demo warehouse';
 
-
 ---> other properties include WAREHOUSE_TYPE for snowpark optimization
-
 ---> params include MAX_CONCURRENCY_LEVEL, STATEMENT_QUEUED_TIMEOUT_IN_SECONDS, and STATEMENT_TIMEOUT_IN_SECONDS
 
 SHOW WAREHOUSES;
